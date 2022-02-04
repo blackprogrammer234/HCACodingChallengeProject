@@ -46,6 +46,8 @@ class MainActivity : AppCompatActivity() {
     private fun initRecycleView(){
         stack_questions_list.apply {
             stack_questions_list.layoutManager = LinearLayoutManager(this@MainActivity)
+            val TopSpacingItemDecoration = TopSpacingItemDecoration(30)
+            addItemDecoration(TopSpacingItemDecoration)
             stack_questions_list.setHasFixedSize(true)
             stackAdapter = StackAdapter()
             adapter = stackAdapter

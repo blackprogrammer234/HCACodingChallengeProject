@@ -30,13 +30,13 @@ class StackAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         val acceptedAnswer: TextView = itemView.accepted_answer_view
 
         fun bind(stack: Item){
-            stackQuestionTitle.setText(stack.title)
-            createdBy.setText(stack.owner.display_name)
-            //anwser.setText(question.answer_count)
+            stackQuestionTitle.setText("Q: "+stack.title)
+            createdBy.setText("Created by: " +stack.owner.display_name)
+            anwser.setText("Answer: " + stack.answer_count)
             if(stack.is_answered){
-                acceptedAnswer.setText("1")
+                acceptedAnswer.setText("Accepted Answer: 1")
             }else
-                acceptedAnswer.setText("0")
+                acceptedAnswer.setText("Accepted Answer: 0")
         }
     }
 
