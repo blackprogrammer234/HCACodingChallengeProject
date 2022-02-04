@@ -23,7 +23,20 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-
+        <TextView
+            android:id="@+id/app_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:textSize="20sp"
+            android:text="@string/new_feed_title"
+            android:textColor="@color/white" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/stack_questions_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
