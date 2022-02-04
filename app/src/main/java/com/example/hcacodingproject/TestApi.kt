@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
                 /*for(myData in responseBody.items){
                         println(myData.question_id)
                 }*/
-                println(responseBody.items[0].body)
+                //println(responseBody.items[0].body)
             }
         }
     }
