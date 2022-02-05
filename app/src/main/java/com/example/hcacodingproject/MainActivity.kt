@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hcacodingproject.adapter.ApiAdapter
 import com.example.hcacodingproject.adapter.StackAdapter
-import com.example.hcacodingproject.models.Item
+import com.example.hcacodingproject.models.Question
 //This import is needed to extend the other layout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.launch
@@ -35,9 +35,9 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful && response.body() != null) {
                     //val responseBody: List<Question?> = listOf(response.body())
                     val example = response.body()!!.items
-                    val list = ArrayList<Item>()
+                    val list = ArrayList<Question.Item>()
                     list.addAll(example)
-                    stackAdapter.submitList(list as List<Item>)
+                    stackAdapter.submitList(list as List<Question.Item>)
                 }
             }
         }

@@ -58,6 +58,28 @@
                     android:textColor="@color/white"
                     app:layout_constraintTop_toBottomOf="@id/answer_view">
                 </TextView>
+                <TextView
+                    android:id="@+id/body_question_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="30dp"
+                    android:paddingBottom="5dp"
+                    android:text="Body"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/accepted_answer_view">
+                </TextView>
+                <TextView
+                    android:id="@+id/body_answer_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:paddingLeft="30dp"
+                    android:paddingBottom="5dp"
+                    android:text="Answer"
+                    android:textColor="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/body_question_view">
+                </TextView>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
