@@ -7,16 +7,17 @@
     android:background="@color/pale_black">
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_id"
+            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="4dp"
             app:cardElevation="10dp"
             app:cardPreventCornerOverlap="true">
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/dark_grey"
+                android:clickable="true"
                 >
                 <TextView
                     android:id="@+id/stack_question_title_view"
@@ -65,6 +66,7 @@
                     android:layout_marginTop="4dp"
                     android:paddingLeft="30dp"
                     android:paddingBottom="5dp"
+                    android:visibility="gone"
                     android:text="Body"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toBottomOf="@id/accepted_answer_view">

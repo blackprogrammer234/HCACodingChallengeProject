@@ -3,6 +3,7 @@ package com.example.hcacodingproject.api
 
 
 import com.example.hcacodingproject.models.Question
+import com.example.hcacodingproject.models.answers
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -14,6 +15,6 @@ interface StackExchangeApiClient {
 
     @GET("2.3/questions/{ids}/answers?order=desc&sort=activity&site=stackoverflow&filter=withbody")
     suspend fun getAnswerOfStackExchangeQuestionsBaswdOnId(
-        @Path("ids") questionId: String
-    ):Response<Question>
+        @Path("ids") questionId: Int
+    ):Response<answers.Item>
 }
