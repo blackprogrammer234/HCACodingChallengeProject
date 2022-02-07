@@ -1,5 +1,7 @@
 package com.example.hcacodingproject
 
+import android.content.Context
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.AutoTransition
@@ -34,10 +36,22 @@ class MainActivity : AppCompatActivity(){
         stack_questions_list.layoutManager = LinearLayoutManager(this)
         stack_questions_list.setHasFixedSize(true)
         initRecycleView()
-        addData()
-
-        /*val binding: ViewDataBinding? = DataBindingUtil.setContentView(
-            this, R.layout.layout_stack_list_item)*/
+        try{
+            addData(this)
+        }catch (e: Exception){
+            println(e)
+            val linearLayout: LinearLayout = findViewById(R.id.home_layout)
+            val textView = TextView(this)
+            textView.text = "Something went wrong. Please try again.\n" + e
+            val params = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+            )
+            textView.layoutParams = params
+            textView.textSize = 24F
+            textView.setTextColor(Color.WHITE)
+            linearLayout.addView(textView)
+        }
     }
 
     private fun onListItemClick(position: Int) {
@@ -65,6 +79,9 @@ class MainActivity : AppCompatActivity(){
                     val list = ArrayList<Question.Item>()
                     list.addAll(example)
                     stackAdapter.submitList(list as List<Question.Item>)
+                }
+                else{
+                    Toast.makeText(mycontext, "Something went wrong. Please try again. \n" + response.errorBody(), Toast.LENGTH_LONG).show()
                 }
             }
         }
