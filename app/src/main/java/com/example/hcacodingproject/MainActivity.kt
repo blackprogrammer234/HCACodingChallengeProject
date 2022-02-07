@@ -25,6 +25,7 @@ private lateinit var stackAdapter: StackAdapter
 //var model : List<Question> = mutableListOf()
 
 class MainActivity : AppCompatActivity(){
+    var answers: HashMap<String, List<answers.Item>> = HashMap()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,7 +61,6 @@ class MainActivity : AppCompatActivity(){
             launch {
                 val response = ApiAdapter.apiClient.getAllStackExchangeQuestions()
                 if (response.isSuccessful && response.body() != null) {
-                    //val responseBody: List<Question?> = listOf(response.body())
                     val example = response.body()!!.items
                     val list = ArrayList<Question.Item>()
                     list.addAll(example)

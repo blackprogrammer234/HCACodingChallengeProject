@@ -7,17 +7,16 @@
     android:background="@color/pale_black">
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view_id"
-            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="4dp"
             app:cardElevation="10dp"
             app:cardPreventCornerOverlap="true">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/dark_grey"
-                android:clickable="true"
                 >
                 <TextView
                     android:id="@+id/stack_question_title_view"
@@ -25,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:padding="30dp"
                     android:textColor="@color/white"
-                    android:text="Q: Test question for Kotlin"
+                    android:text="@string/title_of_the_sample_question"
                     app:layout_constraintTop_toTopOf="parent">
                 </TextView>
                 <TextView
@@ -34,7 +33,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:paddingLeft="30dp"
-                    android:text="Created by:  tayb"
+                    android:text="@string/created_by_sample_question"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toBottomOf="@+id/stack_question_title_view">
                 </TextView>
@@ -44,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:paddingLeft="30dp"
-                    android:text="Answer: 1"
+                    android:text="@string/answers_count_for_sample_question"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toBottomOf="@+id/created_by_view">
                 </TextView>
@@ -55,7 +54,7 @@
                     android:layout_marginTop="4dp"
                     android:paddingLeft="30dp"
                     android:paddingBottom="5dp"
-                    android:text="Accepted Answer:  0"
+                    android:text="@string/accepted_answers_for_sample_question"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toBottomOf="@id/answer_view">
                 </TextView>
@@ -66,8 +65,7 @@
                     android:layout_marginTop="4dp"
                     android:paddingLeft="30dp"
                     android:paddingBottom="5dp"
-                    android:visibility="gone"
-                    android:text="Body"
+                    android:text="@string/sample_question_body"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toBottomOf="@id/accepted_answer_view">
                 </TextView>
@@ -78,7 +76,7 @@
                     android:layout_marginTop="4dp"
                     android:paddingLeft="30dp"
                     android:paddingBottom="5dp"
-                    android:text="Answer"
+                    android:text="@string/anwsers_to_the_sample_question"
                     android:textColor="@color/white"
                     app:layout_constraintTop_toBottomOf="@id/body_question_view">
                 </TextView>

@@ -13,6 +13,8 @@ import com.example.hcacodingproject.models.answers
 import kotlinx.android.synthetic.main.layout_stack_list_item.view.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 object ApiAdapter {
@@ -28,7 +30,7 @@ class StackAdapter(
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var stack: List<Question.Item> = ArrayList()
-    private var answer:List<answers.Item> = ArrayList()
+    private var answ: HashMap<String, List<answers.Item>> = HashMap()
 
     class StackViewHolder constructor(itemView: View, private val onItemClicked: (position: Int) -> Unit ) : RecyclerView.ViewHolder(itemView),View.OnClickListener {
         val stackQuestionTitle: TextView = itemView.stack_question_title_view
@@ -41,7 +43,7 @@ class StackAdapter(
         init {
             itemView.setOnClickListener(this)
         }
-         fun bind(stack: Question.Item) {
+         fun bind(stack: Question.Item, ans: List<answers.Item>) {
             stackQuestionTitle.setText("Q: " + stack.title)
             createdBy.setText("Created by: " + stack.owner.display_name)
             anwser.setText("Answer: " + stack.answer_count)
@@ -51,7 +53,11 @@ class StackAdapter(
                 acceptedAnswer.setText("Accepted Answer: 0")
             //change this method since this depricated
             body.setText(Html.fromHtml(stack.body))
-
+             val builder = StringBuilder()
+             ans.forEach {
+                 builder.append(ans)
+             }
+            answer_body.setText(builder.toString())
         }
 
 
@@ -65,7 +71,6 @@ class StackAdapter(
 
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return StackViewHolder(
             LayoutInflater.from(parent.context)
@@ -76,30 +81,19 @@ class StackAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is StackViewHolder -> {
-                holder.bind(stack.get(position))
+                var getAnswer = stack.get(position).question_id.toString()
+                holder.bind(stack.get(position), answ.get(getAnswer)!!)
             }
         }
     }
 
-    fun submitList(myData: List<Question.Item>) {
+    fun submitList(myData: List<Question.Item>, myData_answer: HashMap<String, List<answers.Item>>) {
         stack = myData
+        answ = myData_answer
     }
 
     override fun getItemCount(): Int {
         return stack.size
     }
 }
-interface onItemClickListener{
-    fun onItemClick(position: Int)
-}
 
-/*
-public suspend fun addAnswerDataBasedOnQuestionId(questionId: Int) : ArrayList<answers.Item> {
-    val list = ArrayList<answers.Item>()
-    val response = ApiAdapter.apiClient.getAnswerOfStackExchangeQuestionsBaswdOnId(questionId)
-    if (response.isSuccessful && response.body() != null) {
-        val example = response.body()!!
-        list.add(example)
-    }
-    return list
-}*/

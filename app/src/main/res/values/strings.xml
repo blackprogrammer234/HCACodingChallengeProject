@@ -2,5 +2,10 @@
     <string name="app_name">HCACodingProject</string>
     <string name="app_title">Stack Exchange Mobile</string>
     <string name="new_feed_title">New feeds</string>
-
+    <string name="title_of_the_sample_question">Q: Test question for Kotlin</string>
+    <string name="created_by_sample_question">Created by:  tayb</string>
+    <string name="answers_count_for_sample_question">Answer: 1</string>
+    <string name="accepted_answers_for_sample_question">Does this question has accepted answer:  Yes</string>
+    <string name="sample_question_body"><p>I am try to send DM user to user with discord.py. And not Bot to User DM.</p>\n<pre><code>@client.event\nasync def on_ready():\n   print(&quot;The bot is ready&quot;)\n   print(&quot;------------------------&quot;)\n   user = await client.fetch_user(User_id)\n   await user.send(&quot;Hello there!&quot;)\n</code></pre>\n<p>this code send bot to user dm but i want to send user to user DM only</p>\n"</string>
+    <string name="anwsers_to_the_sample_question">TEST Answer</string>
 </resources>

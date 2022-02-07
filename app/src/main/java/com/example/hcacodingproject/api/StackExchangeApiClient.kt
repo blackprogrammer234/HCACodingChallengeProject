@@ -13,8 +13,8 @@ interface StackExchangeApiClient {
     @GET("/2.3/questions?order=desc&sort=activity&site=stackoverflow&filter=withbody")
     suspend fun getAllStackExchangeQuestions():Response<Question>
 
-    @GET("2.3/questions/{ids}/answers?order=desc&sort=activity&site=stackoverflow&filter=withbody")
+    @GET("/2.3/questions/{ids}/answers?order=desc&sort=activity&site=stackoverflow&filter=withbody")
     suspend fun getAnswerOfStackExchangeQuestionsBaswdOnId(
         @Path("ids") questionId: Int
-    ):Response<answers.Item>
+    ):Response<answers>
 }
